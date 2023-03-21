@@ -26,7 +26,12 @@ while True:
         pass
 
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_wall()
+
+    if (ball.xcor() > 330 and ball.distance(r_paddle.pos()) < 50) or\
+            (ball.xcor() < -330 and ball.distance(l_paddle.pos()) < 50):
+        ball.bounce_paddle()
+
     ball.moving()
 
     sleep(0.1)
