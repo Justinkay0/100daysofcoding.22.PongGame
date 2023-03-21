@@ -22,12 +22,14 @@ while True:
     screen.onkey(r_paddle.down, 'Down')
     screen.onkey(l_paddle.up, 'w')
     screen.onkey(l_paddle.down, 's')
-    if ball.distance(r_paddle.pos()) < 45 or ball.distance(l_paddle.pos()) < 45 or \
-            ball.ycor() > 290 or ball.ycor() < - 290 :
-        ball.rebound()
+    if ball.distance(r_paddle.pos()) < 45 or ball.distance(l_paddle.pos()) < 45 :
+        pass
+
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
     ball.moving()
 
-    sleep(0.15)
+    sleep(0.1)
     screen.update()
 
 screen.exitonclick()

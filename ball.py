@@ -7,11 +7,17 @@ class Ball(Turtle):
         self.shape('circle')
         self.color('white')
         self.penup()
-        self.setheading(20)
-        self.speed(5)
+        self.x_move = 10
+        self.y_move = 10
 
     def moving(self):
-        self.forward(20)
+
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(x=new_x, y=new_y)
+
+    def bounce(self):
+        self.y_move *= -1
 
     def rebound(self):
         if 0 <= self.heading() <= 90:
