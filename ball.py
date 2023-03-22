@@ -16,19 +16,13 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.goto(x=new_x, y=new_y)
 
-    def bounce_wall(self):
+    def bounce_y(self):
         self.y_move *= -1
 
-    def bounce_paddle(self):
+    def bounce_x(self):
         self.x_move *= -1
 
-    def rebound(self):
-        if 0 <= self.heading() <= 90:
-            self.setheading(self.heading()+90)
-        elif self.heading() <= 180:
-            self.setheading(self.heading()+90)
-        elif self.heading() <= 270:
-            self.setheading(self.heading()+90)
-        elif self.heading() > 270:
-            self.setheading(self.heading() - 270)
+    def reset_ball(self):
+        self.setposition(0, 0)
+        self.bounce_x()
 
